@@ -10,9 +10,6 @@ html, body {
  
  }
  
- *{
- cursor: none;
- }
  .main {
    margin-top: 8vh;
    max-width: 100vw;
