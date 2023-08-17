@@ -1,3 +1,11 @@
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js'
+        
+// If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js'
+
+// Add Firebase products that you want to use
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js'
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js'
 (function () {
     
     // Your web app's Firebase configuration
@@ -12,7 +20,7 @@
         measurementId: "G-56ZPB0XLHR"
     };
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
+    initializeApp(firebaseConfig);
 
     //Get Elements
     const txtEmail = document.getElementById("txtEmail");
@@ -25,11 +33,13 @@
         const email = txtEmail.value;
         const password = txtPassword.value;
 
-        const auth = firebase.auth();
+        const auth = getAuth();
 
         //sign in with firebase auth
-        auth.signInWithEmailAndPassword(email, password).then(user =>{
+        signInWithEmailAndPassword(auth, email, password).then(user =>{
+            localStorage.setItem("uid", user.uid)
             alert("Login Successful :)");
+            window.location.href = "search.html";
         }).catch(err => {
             alert(err.message);
         });
@@ -43,11 +53,14 @@
         const email = txtEmail.value;
         const password = txtPassword.value;
 
-        const auth = firebase.auth();
+        const auth = getAuth();
 
         //sign in with firebase auth
-        const promise = auth.createUserWithEmailAndPassword(email, password).then(user => {
+        const promise = createUserWithEmailAndPassword(auth, email, password).then(user => {
+            localStorage.setItem("uid", user.uid)
+            loca.Storage.setItem("currCart", [])
             alert("Signup Successful :)")
+            window.location.href = "search.html";
         }).catch(err => {
             alert(err.message);
         });
