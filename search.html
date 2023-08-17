@@ -11,43 +11,20 @@
     <nav class="navbar">
         <img class="items" src="images/smart_savings.png">
         <a href="index.html" class="navbar-div" style="text-decoration: none">Log Out</a>
-        <a href="shopping.html" class="navbar-div" style="text-decoration: none">Convenience Cart</a>
+        <a id="logout" class="navbar-div" style="text-decoration: none">Your Cart</a>
 
     </nav>
 <br>
 <br>
 <br>
 <br>
-    <div id="items">
-        <div class="C_item">
-         <img src="images/bean.jpg" alt="shown items">
-            <p>Price: $22.99</p>
-            <p>Where to find:<a href="https://www.amazon.com/Tutuko-Bluetooth-Rechargeable-Headphone-Christmas/dp/B0BB1GCL4H/ref=sr_1_3_sspa?crid=3FJHSLYR4YKXL&keywords=light+up+beanie&qid=1692214232&sprefix=light+up+beenie%2Caps%2C109&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">here</a></p>
-        </div>
-
-        <div class="C_item">
-            <img src="images/chicken.jpg" alt="shown items">
-            <p>Price: $6.49</p>
-            <p>Where to find:<a href="https://www.amazon.com/365-Everyday-Value-Boneless-Skinless-Pre-Packaged/dp/B07813VZHR/ref=sr_1_4_f3_0o_wf?crid=FXE8LCWWPTSD&keywords=chicken&qid=1692214110&sprefix=chick%2Caps%2C122&sr=8-4">here</a></p>
-        </div>
-    
-        <div class="C_item">
-            <img src="images/pizza.jpg" alt="shown items">
-            <p>Price: $5.29</p>
-            <p>Where to find:<a href="https://www.amazon.com/365-Whole-Foods-Market-Frozen/dp/B0812LP6PJ/ref=sr_1_5_f3_0o_wf?crid=37IABRUL1I734&keywords=pizza&qid=1692213762&sprefix=pizza%2Caps%2C124&sr=8-5">here</a></p>
-        </div>
-    </div>
-
     <div class="search-container">
-        <input type="text" id="item-name" placeholder="Enter item name">
+        <input type="text" id="item-name" style='text-align: center; width: 100%' placeholder="Enter Item Name">
         <button id="search-button">Search</button>
         <div class="spinner"></div>
     </div>
-
-    <img src=""></img>
-    <p id="prices"></p>
-    <p id="desc"></p>
-
+    <div id="results">
+    </div>
     <script async="true" src="search.js"></script>
 
 </body>

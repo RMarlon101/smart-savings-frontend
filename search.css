@@ -99,7 +99,7 @@ transform: translate(-5px,-5px);
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 20vh;
 }
 
 #item-name {
@@ -130,18 +130,21 @@ transform: translate(-5px,-5px);
   border-radius: 50%;
   display: none;
 }
-#items {
+#results {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: center;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  flex-wrap: wrap;
 }
 .C_item {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  font-size: 10px;
   margin: 10px;
-  width: 300px;
+  width: 200px;
   text-align: center;
 
 .search-container {

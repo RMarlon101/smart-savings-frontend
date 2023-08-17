@@ -1,5 +1,10 @@
-import { constants } from "http2";
-
+if (!localStorage.uid) {
+    window.location.href = "signup.html";
+}
+document.getElementById("logout").addEventListener("click", function() {
+    localStorage.removeItem("uid");
+    window.location.href="index.html"
+})
 const database = firebase.database().ref();
 database.on("child_added", addItem);
 

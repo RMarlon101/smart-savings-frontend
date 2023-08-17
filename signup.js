@@ -37,7 +37,6 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase
         
         signInWithEmailAndPassword(auth, email, password).then(user =>{
             localStorage.setItem("uid", user.uid)
-            alert("Login Successful :)");
             window.location.href = "search.html";
         }).catch(err => {
             alert(err.message);
@@ -58,7 +57,6 @@ import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase
         const promise = createUserWithEmailAndPassword(auth, email, password).then(user => {
             localStorage.setItem("uid", user.uid)
             loca.Storage.setItem("currCart", [])
-            alert("Signup Successful :)")
             window.location.href = "search.html";
         }).catch(err => {
             alert(err.message);
