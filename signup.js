@@ -5,6 +5,9 @@ import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase
 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js'
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js'
+if (localStorage.uid) {
+    window.location.href="search.html"
+}
 (function () {
     
   

@@ -5,9 +5,17 @@ if (!localStorage.uid) {
   window.location.href = "signup.html";
 }
 document.getElementById("logout").addEventListener("click", function() {
-  localStorage.removeItem("uid");
+  localStorage.clear();
   window.location.href="index.html"
 })
+function AddToCart(el, item) {
+  console.log('moving owrk', el, item)
+  let dict = JSON.parse(item)
+  let curr = localStorage.getItem('currcart')
+  localStorage.setItem('currCart', curr.push(dict))
+  el.innerHTML = "Added!";
+  event.preventDefault;
+}
 var loading = false;
 let query = document.getElementById("item-name");
 search.addEventListener("click", function() {
@@ -20,13 +28,18 @@ search.addEventListener("click", function() {
         for (let i=0; i<data.length; i++){
           let item = data[i]
           if (item.price) {
+            let stringTem = JSON.stringify(item)
+            console.log('sgingtem', stringTem)
           let result = `
           <div class="C_item">
               <img style='margin: auto' src="${item.image}" alt="shown items">
               <p>${item.title}</p>
               <p>Price: $${item.price}</p>
               <p>${item.stars}</p>
-              <p>Where to find:<a href="https://www.amazon.com/365-Whole-Foods-Market-Frozen/dp/B0812LP6PJ/ref=sr_1_5_f3_0o_wf?crid=37IABRUL1I734&keywords=pizza&qid=1692213762&sprefix=pizza%2Caps%2C124&sr=8-5">here</a></p>
+              <form action="${item.link}" target="_blank">
+                <button value="submit" class="btn btn-primary shadow">Buy It!</button>
+              </form>
+
           </div>
         `
         apiResultsDiv.innerHTML+=result
