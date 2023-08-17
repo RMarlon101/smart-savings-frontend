@@ -10,11 +10,8 @@ document.getElementById("logout").addEventListener("click", function() {
 })
 function AddToCart(el, item) {
   console.log('moving owrk', el, item)
-  let dict = JSON.parse(item)
-  let curr = localStorage.getItem('currcart')
+  let curr = localStorage.getItem('currCart')
   localStorage.setItem('currCart', curr.push(dict))
-  el.innerHTML = "Added!";
-  event.preventDefault;
 }
 var loading = false;
 let query = document.getElementById("item-name");
@@ -28,8 +25,6 @@ search.addEventListener("click", function() {
         for (let i=0; i<data.length; i++){
           let item = data[i]
           if (item.price) {
-            let stringTem = JSON.stringify(item)
-            console.log('sgingtem', stringTem)
           let result = `
           <div class="C_item">
               <img style='margin: auto' src="${item.image}" alt="shown items">
@@ -39,10 +34,17 @@ search.addEventListener("click", function() {
               <form action="${item.link}" target="_blank">
                 <button value="submit" class="btn btn-primary shadow">Buy It!</button>
               </form>
-
+                <button id="form${i}"class="btn btn-primary shadow" style="margin-bottom: 20px">Add to Cart</button>
           </div>
         `
         apiResultsDiv.innerHTML+=result
-          }
+        let element = document.getElementById(`form${i}`)
+        console.log('get el', element)
+        element.addEventListener("click", function() {
+          console.log('war clikced')
+          AddToCart(data[i])
+          el.innerHTML = "Added!"
+        })
+        }
         }}).then(x => loading=false)
 })
